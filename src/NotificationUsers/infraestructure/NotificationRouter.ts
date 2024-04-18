@@ -22,6 +22,8 @@ notification.post(
 
 notification.post("/temperatura", (req: Request, res: Response) => {
   try {
+    console.log(req.body);
+    
     const servicesMessages = new ServicesMessages();
     servicesMessages.sendMessages(1, req.body);
     res.status(200).send("");
@@ -31,6 +33,8 @@ notification.post("/temperatura", (req: Request, res: Response) => {
 });
 
 notification.post("/alerta-movimiento", (req: Request, res: Response) => {
+    console.log("se movio");
+    
   try {
     const servicesMessagesNotification = new ServicesMessagesNotification();
     servicesMessagesNotification.run(
@@ -46,6 +50,8 @@ notification.post("/alerta-movimiento", (req: Request, res: Response) => {
 
 notification.post("/alerta", (req: Request, res: Response) => {
   try {
+    console.log("robo");
+    
     const sendMessagesViolationSeguriti = new SendMessagesViolationSeguriti();
     sendMessagesViolationSeguriti.run(
       3,
