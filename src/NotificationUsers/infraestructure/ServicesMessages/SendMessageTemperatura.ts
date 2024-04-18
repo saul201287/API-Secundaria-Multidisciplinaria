@@ -8,7 +8,7 @@ export class ServicesMessagesNotification {
       console.log(socket);
       
       const data = { codigo: codigo, message: message };
-      socket.on("connect", () => {
+      socket.on("connection", () => {
 
         console.log("Conexión establecida con el servidor de WebSocket");
         socket.emit("notification-alert", data);
