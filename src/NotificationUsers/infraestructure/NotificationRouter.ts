@@ -20,12 +20,12 @@ notification.post(
   sendEmilPasswordController.run.bind(sendEmilPasswordController)
 );
 
-notification.post("/temperatura", (req: Request, res: Response) => {
+notification.post("/temperatura",async (req: Request, res: Response) => {
   try {
-    console.log(req.body);
+    //console.log(req.body);
     
     const servicesMessages = new ServicesMessages();
-    servicesMessages.sendMessages(1, req.body);
+    await servicesMessages.sendMessages(1, req.body);
     res.status(200).send("");
   } catch (error) {
     res.status(500).send(error);
