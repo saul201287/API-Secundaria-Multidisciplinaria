@@ -12,7 +12,9 @@ export class ServicesMessagesNotification {
         console.log("Conexión establecida con el servidor de WebSocket");
         socket.emit("notification-desbloqueo", data);
       });
-      
+      socket.on("connect_error", (error: any) => {
+        console.error("Error de conexión con el servidor de WebSocket:", error);
+      });
       return "Mensaje enviado";
     } catch (error) {
       console.error(error);
