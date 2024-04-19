@@ -7,14 +7,14 @@ export class ServicesMessagesNotification {
       const socket = io(url);
       
       const data = { codigo: codigo, message: message };
-      socket.on("connection", () => {
-
+      socket.on("connect", () => {
         console.log("Conexión establecida con el servidor de WebSocket");
         socket.emit("notification-alert", data);
       });
       socket.on("connect_error", (error: any) => {
         console.error("Error de conexión con el servidor de WebSocket:", error);
       });
+     
       return "Mensaje enviado";
     } catch (error) {
       console.error(error);
