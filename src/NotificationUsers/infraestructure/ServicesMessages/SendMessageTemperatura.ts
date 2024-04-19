@@ -10,7 +10,7 @@ export class ServicesMessagesNotification {
       socket.on("connection", () => {
 
         console.log("Conexión establecida con el servidor de WebSocket");
-        socket.emit("notification-alert", data);
+        socket.emit("notification-desbloqueo", data);
       });
       
       return "Mensaje enviado";
