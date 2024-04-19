@@ -14,7 +14,6 @@ export class ServicesMessages implements IWebSocket {
         socket.emit("temperatura", data, (response: any) => {
           // Callback de confirmación del servidor
           console.log("Respuesta del servidor:", response);
-          socket.disconnect(); // Desconectar el socket después de enviar el mensaje
         });
       });
 
